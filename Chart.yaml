@@ -1,0 +1,21 @@
+apiVersion: v2
+type: application
+name: mautrix-meta
+version: 0.0.1
+appVersion: 0.3.0
+annotations:
+  artifacthub.io/images: |
+    - name: meta
+      image: dock.mau.dev/mautrix/meta:v0.3.0
+description: A Matrix-meta puppeting bridge.
+home: https://matrix.to/#/#meta:maunium.net
+keywords:
+  - chat
+  - matrix
+  - meta
+maintainers:
+  - email: loic.kalbermatter@pulseflow.ch
+    name: Loic Kalbermatter
+sources:
+  - https://github.com/mautrix/meta
+  - https://code.pulseflow.ch/PulseDev/mautrix-meta

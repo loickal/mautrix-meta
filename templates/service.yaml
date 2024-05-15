@@ -1,0 +1,21 @@
+{{- if .Values.config }}
+{{- if .Values.config.appservice }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "mautrix-meta.fullname" . }}
+  labels:
+{{ include "mautrix-meta.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  clusterIP: {{ .Values.service.clusterIP | quote }}
+  externalTrafficPolicy: {{ .Values.service.externalTrafficPolicy }}
+  ports:
+    - port: {{ required "need config.appservice.port" .Values.config.appservice.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "mautrix-meta.selectorLabels" . | nindent 4 }}
+{{- end }}
+{{- end }}
