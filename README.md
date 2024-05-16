@@ -1,6 +1,6 @@
 # mautrix-meta
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.0](https://img.shields.io/badge/AppVersion-0.3.0-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.3.0](https://img.shields.io/badge/AppVersion-0.3.0-informational?style=flat-square)
 
 A Matrix-meta puppeting bridge.
 
@@ -54,7 +54,7 @@ A Matrix-meta puppeting bridge.
 | config.bridge.delivery_receipts | bool | `false` |  |
 | config.bridge.disable_bridge_alerts | bool | `false` |  |
 | config.bridge.disable_xma | bool | `false` |  |
-| config.bridge.displayname_template | string | `"{{or .DisplayName .Username \"Unknown user\"}}"` |  |
+| config.bridge.displayname_template | string | `"{{ \"{{or .DisplayName .Username `Unknown User`}} (IG)\" }}"` |  |
 | config.bridge.double_puppet_allow_discovery | bool | `false` |  |
 | config.bridge.double_puppet_server_map."example.com" | string | `"https://example.com"` |  |
 | config.bridge.encryption.allow | bool | `false` |  |
@@ -97,17 +97,17 @@ A Matrix-meta puppeting bridge.
 | config.bridge.provisioning.shared_secret | string | `"generate"` |  |
 | config.bridge.relay.admin_only | bool | `true` |  |
 | config.bridge.relay.enabled | bool | `false` |  |
-| config.bridge.relay.message_formats."m.audio" | string | `"{{ .Sender.Displayname }} sent an audio file"` |  |
-| config.bridge.relay.message_formats."m.emote" | string | `"* {{ .Sender.Displayname }} {{ .Message }}"` |  |
-| config.bridge.relay.message_formats."m.file" | string | `"{{ .Sender.Displayname }} sent a file"` |  |
-| config.bridge.relay.message_formats."m.image" | string | `"{{ .Sender.Displayname }} sent an image"` |  |
-| config.bridge.relay.message_formats."m.location" | string | `"{{ .Sender.Displayname }} sent a location"` |  |
-| config.bridge.relay.message_formats."m.notice" | string | `"{{ .Sender.Displayname }}: {{ .Message }}"` |  |
-| config.bridge.relay.message_formats."m.text" | string | `"{{ .Sender.Displayname }}: {{ .Message }}"` |  |
-| config.bridge.relay.message_formats."m.video" | string | `"{{ .Sender.Displayname }} sent a video"` |  |
+| config.bridge.relay.message_formats."m.audio" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent an audio file\"}}"` |  |
+| config.bridge.relay.message_formats."m.emote" | string | `"{{\"* <b>{{ .Sender.Displayname }}</b> {{ .Message }}\"}}"` |  |
+| config.bridge.relay.message_formats."m.file" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent a file\"}}"` |  |
+| config.bridge.relay.message_formats."m.image" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent an image\"}}"` |  |
+| config.bridge.relay.message_formats."m.location" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent a location\"}}"` |  |
+| config.bridge.relay.message_formats."m.notice" | string | `"{{\"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}\"}}"` |  |
+| config.bridge.relay.message_formats."m.text" | string | `"{{\"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}\"}}"` |  |
+| config.bridge.relay.message_formats."m.video" | string | `"{{\"<b>{{ .Sender.Displayname }}</b> sent a video\"}}"` |  |
 | config.bridge.resend_bridge_info | bool | `false` |  |
 | config.bridge.sync_direct_chat_list | bool | `false` |  |
-| config.bridge.username_template | string | `"instagram_{{.}}"` |  |
+| config.bridge.username_template | string | `"instagram_{{ \"{{.}}\" }}"` |  |
 | config.homeserver.address | string | `"https://matrix.example.com"` |  |
 | config.homeserver.async_media | bool | `false` |  |
 | config.homeserver.domain | string | `"example.com"` |  |

@@ -165,12 +165,12 @@ config:
   bridge:
     # Localpart template of MXIDs for FB/IG users.
     # {{.}} is replaced with the internal ID of the FB/IG user.
-    username_template: instagram_{{.}}
+    username_template: 'instagram_{{ "{{.}}" }}'
     # Displayname template for FB/IG users. This is also used as the room name in DMs if private_chat_portal_meta is enabled.
     # {{.DisplayName}} - The display name set by the user.
     # {{.Username}} - The username set by the user.
     # {{.ID}} - The internal user ID of the user.
-    displayname_template: '{{or .DisplayName .Username "Unknown user"}}'
+    displayname_template: '{{ "{{or .DisplayName .Username `Unknown User`}} (IG)" }}'
     # Whether to explicitly set the avatar and room name for private chat portal rooms.
     # If set to `default`, this will be enabled in encrypted rooms and disabled in unencrypted rooms.
     # If set to `always`, all DM rooms will have explicit names and avatars set.
@@ -376,14 +376,14 @@ config:
       admin_only: true
       # The formats to use when sending messages to Meta via the relaybot.
       message_formats:
-        m.text: '{{ .Sender.Displayname }}: {{ .Message }}'
-        m.notice: '{{ .Sender.Displayname }}: {{ .Message }}'
-        m.emote: '* {{ .Sender.Displayname }} {{ .Message }}'
-        m.file: '{{ .Sender.Displayname }} sent a file'
-        m.image: '{{ .Sender.Displayname }} sent an image'
-        m.audio: '{{ .Sender.Displayname }} sent an audio file'
-        m.video: '{{ .Sender.Displayname }} sent a video'
-        m.location: '{{ .Sender.Displayname }} sent a location'
+        m.text: '{{"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}"}}'
+        m.notice: '{{"<b>{{ .Sender.Displayname }}</b>: {{ .Message }}"}}'
+        m.emote: '{{"* <b>{{ .Sender.Displayname }}</b> {{ .Message }}"}}'
+        m.file: '{{"<b>{{ .Sender.Displayname }}</b> sent a file"}}'
+        m.image: '{{"<b>{{ .Sender.Displayname }}</b> sent an image"}}'
+        m.audio: '{{"<b>{{ .Sender.Displayname }}</b> sent an audio file"}}'
+        m.video: '{{"<b>{{ .Sender.Displayname }}</b> sent a video"}}'
+        m.location: '{{"<b>{{ .Sender.Displayname }}</b> sent a location"}}'
 
   # Logging config. See https://github.com/tulir/zeroconfig for details.
   logging:
