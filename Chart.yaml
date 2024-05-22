@@ -1,12 +1,12 @@
 apiVersion: v2
 type: application
 name: mautrix-meta
-version: 0.0.2
-appVersion: 0.3.0
+version: 0.0.3
+appVersion: 0.3.1
 annotations:
   artifacthub.io/images: |
     - name: meta
-      image: dock.mau.dev/mautrix/meta:v0.3.0
+      image: dock.mau.dev/mautrix/meta:v0.3.1
 description: A Matrix-meta puppeting bridge.
 home: https://matrix.to/#/#meta:maunium.net
 keywords:
